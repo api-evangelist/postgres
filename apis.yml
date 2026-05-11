@@ -1,0 +1,187 @@
+aid: postgres
+name: PostgreSQL
+description: >-
+  PostgreSQL is a powerful, open-source object-relational database system with
+  over 35 years of active development that has earned a strong reputation for
+  reliability, feature robustness, and performance. It supports advanced SQL
+  features, JSON, full-text search, custom data types, extensions, and
+  transactional DDL. PostgreSQL does not expose a native HTTP REST API;
+  client applications connect via the libpq C client library, JDBC, ODBC,
+  or one of dozens of language-specific drivers using the PostgreSQL wire
+  protocol (default port 5432).
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Database
+  - Relational Database
+  - SQL
+  - Open Source
+  - PostgreSQL
+  - Object-Relational
+  - Data Storage
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/postgres/refs/heads/main/apis.yml
+created: '2026-05-11'
+modified: '2026-05-11'
+specificationVersion: '0.19'
+apis:
+  - aid: postgres:wire-protocol
+    name: PostgreSQL Wire Protocol
+    description: >-
+      The PostgreSQL frontend/backend protocol is the low-level message-based
+      protocol used by all client drivers (libpq, JDBC, ODBC, psycopg, pgx,
+      node-postgres, etc.) to communicate with the PostgreSQL server over
+      TCP/IP or Unix sockets. Authentication supports password, SCRAM-SHA-256,
+      MD5, GSSAPI, SSPI, certificate, LDAP, and other pluggable methods.
+    humanURL: https://www.postgresql.org/docs/current/protocol.html
+    baseURL: postgresql://hostname:5432
+    tags:
+      - Database
+      - Wire Protocol
+      - SQL
+      - Connection Protocol
+    properties:
+      - type: Documentation
+        url: https://www.postgresql.org/docs/current/protocol.html
+      - type: Specification
+        url: https://www.postgresql.org/docs/current/protocol-message-formats.html
+  - aid: postgres:libpq
+    name: libpq C Client Library
+    description: >-
+      libpq is the official C application programmer's interface to PostgreSQL
+      and the underlying library used by most other PostgreSQL client
+      interfaces. It provides connection management, query execution, prepared
+      statements, COPY support, asynchronous operations, and SSL/TLS.
+    humanURL: https://www.postgresql.org/docs/current/libpq.html
+    baseURL: postgresql://hostname:5432
+    tags:
+      - Database
+      - C Library
+      - Client Library
+      - libpq
+    properties:
+      - type: Documentation
+        url: https://www.postgresql.org/docs/current/libpq.html
+  - aid: postgres:jdbc
+    name: PostgreSQL JDBC Driver
+    description: >-
+      The official Type 4 JDBC driver for PostgreSQL enables Java applications
+      to connect to PostgreSQL using the standard JDBC API. It supports
+      connection pooling, prepared statements, batched updates, LOBs, COPY,
+      and SSL connections.
+    humanURL: https://jdbc.postgresql.org/documentation/
+    baseURL: jdbc:postgresql://hostname:5432/database
+    tags:
+      - Database
+      - JDBC
+      - Java
+      - Driver
+    properties:
+      - type: Documentation
+        url: https://jdbc.postgresql.org/documentation/
+      - type: GitHub
+        url: https://github.com/pgjdbc/pgjdbc
+  - aid: postgres:odbc
+    name: PostgreSQL ODBC Driver (psqlODBC)
+    description: >-
+      The official ODBC driver for PostgreSQL providing Open Database
+      Connectivity for Windows, Linux, and macOS applications including
+      Microsoft Office, Tableau, Power BI, and other BI/ETL tools that
+      consume ODBC data sources.
+    humanURL: https://odbc.postgresql.org/
+    baseURL: Driver={PostgreSQL};Server=hostname;Port=5432;Database=mydb
+    tags:
+      - Database
+      - ODBC
+      - Driver
+      - BI Integration
+    properties:
+      - type: Documentation
+        url: https://odbc.postgresql.org/docs/
+      - type: GitHub
+        url: https://github.com/postgresql-interfaces/psqlodbc
+
+common:
+  - type: Website
+    url: https://www.postgresql.org
+  - type: Documentation
+    url: https://www.postgresql.org/docs/
+  - type: Download
+    url: https://www.postgresql.org/download/
+  - type: Source Code
+    url: https://git.postgresql.org/gitweb/?p=postgresql.git
+  - type: GitHub Mirror
+    url: https://github.com/postgres/postgres
+  - type: Mailing Lists
+    url: https://www.postgresql.org/list/
+  - type: Community
+    url: https://www.postgresql.org/community/
+  - type: License
+    url: https://www.postgresql.org/about/licence/
+features:
+  - name: ACID Transactions
+    description: >-
+      Full ACID-compliant transactions with multiple isolation levels including
+      serializable snapshot isolation (SSI) for true serializable execution.
+  - name: Advanced SQL
+    description: >-
+      Comprehensive SQL standard support including window functions, common
+      table expressions (CTEs), recursive queries, lateral joins, and more.
+  - name: JSON and JSONB
+    description: >-
+      First-class JSON and binary JSONB column types with rich operators,
+      indexing (GIN), and path expressions for document-style workloads.
+  - name: Extensions
+    description: >-
+      Pluggable extension system enabling PostGIS (geospatial), pgvector
+      (vector embeddings), TimescaleDB, pg_stat_statements, and hundreds more.
+  - name: Replication and HA
+    description: >-
+      Streaming replication, logical replication, hot standbys, and
+      synchronous replication for high availability and read scaling.
+  - name: Full-Text Search
+    description: >-
+      Built-in full-text search with tsvector/tsquery, ranking, multiple
+      languages, and integration with GIN/GiST indexes.
+solutions:
+  - name: OLTP Application Database
+    description: >-
+      Primary transactional database for web applications, SaaS products,
+      and enterprise systems requiring strong consistency and reliability.
+  - name: Geospatial Data Platform
+    description: >-
+      Industry-standard geospatial database via the PostGIS extension for
+      mapping, GIS, location services, and spatial analytics.
+  - name: Vector Database for AI
+    description: >-
+      Store and query embedding vectors using pgvector for retrieval-augmented
+      generation (RAG), semantic search, and recommendation systems.
+useCases:
+  - name: SaaS Application Backend
+    description: >-
+      Multi-tenant relational backend for SaaS apps using row-level security,
+      schemas, and JSONB for flexible per-tenant data.
+  - name: Analytics and Reporting
+    description: >-
+      Operational analytics workloads using window functions, CTEs, and
+      columnar extensions like Citus or Hydra.
+  - name: Geospatial Applications
+    description: >-
+      Mapping, routing, and location-aware applications using PostGIS for
+      spatial queries, geometries, and tiled map data.
+integrations:
+  - name: PostGIS
+    description: Geospatial extension adding geometry, geography, and raster types
+  - name: pgvector
+    description: Vector similarity search extension for AI/ML embeddings
+  - name: TimescaleDB
+    description: Time-series database extension built on PostgreSQL
+  - name: PostgREST
+    description: Auto-generated REST API gateway exposing PostgreSQL tables as endpoints
+  - name: pgAdmin
+    description: Open-source administration and development platform for PostgreSQL
+  - name: Hasura
+    description: GraphQL API engine that auto-generates a GraphQL layer over PostgreSQL
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
