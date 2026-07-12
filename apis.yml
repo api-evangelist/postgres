@@ -104,6 +104,8 @@ apis:
     url: https://github.com/postgresql-interfaces/psqlodbc
 
 common:
+- type: DomainSecurity
+  url: security/postgres-domain-security.yml
 - type: Website
   url: https://www.postgresql.org
 - type: Documentation
@@ -120,6 +122,8 @@ common:
   url: https://www.postgresql.org/community/
 - type: License
   url: https://www.postgresql.org/about/licence/
+- url: https://www.postgresql.org/news.rss
+  type: Blog
 features:
 - name: ACID Transactions
   description: >-
